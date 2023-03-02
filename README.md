@@ -22,5 +22,4 @@ class HomeController extends Controller
         echo $superToolsPackage->persianToEnglishNumber('۱۴۰۲'); // 1402
     }
 }
-?>
 ```
