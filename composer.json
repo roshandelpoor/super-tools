@@ -3,7 +3,7 @@
   "version": "1.1.5",
   "description": "super tools is practical function in PHP",
   "type": "library",
-  "minimum-stability": "main",
+  "minimum-stability": "dev",
   "license": "MIT",
   "autoload": {
       "psr-4": {
@@ -12,7 +12,6 @@
   },
   "require": {
     "php": "^5.6",
-    "laravel/framework": "^5.5",
-    "roshandelpoor/super-tools": "main"
+    "laravel/framework": "^5.5"
   }
 }
