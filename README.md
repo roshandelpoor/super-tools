@@ -8,7 +8,7 @@ get package by
 
 2-composer dumpo-autoload
 
-3- add this line in config/app.phpconfig/app.php
+3- add this line in config/app.php
 Super\SuperToolsServiceProvider::class,
 ```
 
