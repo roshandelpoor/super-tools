@@ -6,7 +6,7 @@ get package by
 ```bash
 1- composer require "roshandelpoor/super-tools"
 
-2-composer dumpo-autoload
+2- composer dump-autoload
 
 3- add this line in config/app.php
 Super\SuperToolsServiceProvider::class,
