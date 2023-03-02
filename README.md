@@ -17,14 +17,17 @@ example call function in class
 
 ```php
 <?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
 use Super\Tools;
 
-class HomeController extends Controller
+class TestPackageController extends Controller
 {
-    public function index()
-    {
-        $superToolsPackage = app('super-tools');
-        echo $superToolsPackage->persianToEnglishNumber('۱۴۰۲'); // 1402
+    public function package () {
+        $superToolsPackage = new Tools();
+        echo $superToolsPackage->persianToEnglishNumber('۱۴۰۲');
     }
 }
 ```
