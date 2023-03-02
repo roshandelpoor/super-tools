@@ -1,5 +1,5 @@
 {
-  "name": "roshandelpoor/superTools",
+  "name": "roshandelpoor/super-tools",
   "version": "1.1.5",
   "description": "super tools is practical function in PHP",
   "type": "library",
@@ -14,6 +14,6 @@
     "php": "^7.4|^8.2",
     "fideloper/proxy": "^4.4",
     "laravel/framework": "^5.0",
-    "roshandelpoor/superTools": "master"
+    "roshandelpoor/superTools": "main"
   }
 }
