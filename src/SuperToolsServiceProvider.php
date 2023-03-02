@@ -1,6 +1,6 @@
 <?php
 
-namespace SuperTools;
+namespace Super;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -8,7 +8,7 @@ class SuperToolsServiceProvider extends ServiceProvider
 {
     public function register()
     {
-        $this->app->bind('superTools', function () {
+        $this->app->bind('super-tools', function () {
             return new SuperTools();
         });    
     }

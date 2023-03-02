@@ -1,8 +1,8 @@
 <?php
 
-namespace SuperTools;
+namespace Super;
 
-class SuperTools
+class Tools
 {
     function persianToEnglishNumber($number)
     {
