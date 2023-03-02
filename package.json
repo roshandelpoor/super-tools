@@ -1,0 +1,19 @@
+{
+  "name": "roshandelpoor/superTools",
+  "version": "1.1.5",
+  "description": "super tools is practical function in PHP",
+  "type": "library",
+  "minimum-stability": "dev",
+  "license": "MIT",
+  "autoload": {
+      "psr-4": {
+          "superTools\\": "src/"
+      }
+  },
+  "require": {
+    "php": "^7.4|^8.2",
+    "fideloper/proxy": "^4.4",
+    "laravel/framework": "^5.0",
+    "roshandelpoor/superTools": "master"
+  }
+}
