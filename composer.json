@@ -3,7 +3,7 @@
   "version": "1.1.5",
   "description": "super tools is practical function in PHP",
   "type": "library",
-  "minimum-stability": "dev",
+  "minimum-stability": "main",
   "license": "MIT",
   "autoload": {
       "psr-4": {
