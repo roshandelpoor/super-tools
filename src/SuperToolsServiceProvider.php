@@ -9,7 +9,7 @@ class SuperToolsServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind('super-tools', function () {
-            return new SuperTools();
+            return new Super();
         });    
     }
 
