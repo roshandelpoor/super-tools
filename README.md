@@ -14,7 +14,6 @@ example call function in class
 <?php
 use Super\Tools;
 
-
 class HomeController extends Controller
 {
     public function index()
