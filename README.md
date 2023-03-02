@@ -4,7 +4,7 @@ super tools is practical function in PHP
 get package by
 --------------
 ```bash
-composer require "roshandelpoor/super-tools @main"
+composer require "roshandelpoor/super-tools"
 ```
 
 example call function in class
