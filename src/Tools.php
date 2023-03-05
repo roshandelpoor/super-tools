@@ -285,7 +285,8 @@ class Tools
         return 'no';
     }
 
-    public function nameDayEnglishToFarsi($string)
+    // english name days convert to persian name
+    public function nameDayEnglishToPersian($string)
     {
         return strtr(
             $string,
