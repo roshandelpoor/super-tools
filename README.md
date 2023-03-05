@@ -1,7 +1,9 @@
 # super-tools
-super tools is practical function in PHP
+Super Tools is a PHP package that provides practical functions to make your coding life easier. It includes a variety of tools that can be used in any PHP project.
 
-get package by
+## Installation
+
+You can install Super Tools using Composer. Simply run the following command:
 --------------
 ```bash
 1- composer require "roshandelpoor/super-tools"
