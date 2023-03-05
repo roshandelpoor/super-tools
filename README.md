@@ -14,7 +14,9 @@ You can install Super Tools using Composer. Simply run the following command:
 Super\SuperToolsServiceProvider::class,
 ```
 
-example call function in class
+## Usage
+
+To use Super Tools in your project, simply include the autoload file and start using the functions. Here's an example:
 ------------------------------
 
 ```php
@@ -34,6 +36,9 @@ class TestPackageController extends Controller
 }
 ```
 
+## Functions
+
+Super Tools includes the following functions:
 List Functions in this package
 ------------------------------
 
@@ -60,3 +65,11 @@ List Functions in this package
 - dateCheckBetweenTwoDates
 - nameDayEnglishToPersian
 ```
+
+## Contributing
+
+If you find any bugs or have suggestions for new features, feel free to open an issue or submit a pull request on GitHub.
+
+## License
+
+Super Tools is open-source software licensed under the MIT license.
