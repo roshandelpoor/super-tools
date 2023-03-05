@@ -4,7 +4,7 @@ namespace Super;
 
 class Tools
 {
-    function persianToEnglishNumber($number)
+    public function persianToEnglishNumber($number)
     {
         return strtr($string, [
             '۰' => '0',
@@ -30,7 +30,7 @@ class Tools
         ]);
     }
 
-    function englishToPersianNumber($number)
+    public function englishToPersianNumber($number)
     {
         return strtr($string, [
             '0' => '۰',
@@ -47,7 +47,7 @@ class Tools
 
     }
 
-    function base64ToImage($base64_string, $output_file)
+    public function base64ToImage($base64_string, $output_file)
     {
         $file = fopen($output_file, "wb");
         fwrite($file, base64_decode($base64_string));
@@ -56,7 +56,7 @@ class Tools
         return $output_file;
     }
 
-    function getExtensionFileFromBase64($base64_string)
+    public function getExtensionFileFromBase64($base64_string)
     {
         $file = base64_decode($base64_string);
 
@@ -73,7 +73,7 @@ class Tools
     // check for exist the key in Illuminate\Support\Facades\Cache
     // if found, so say it's locked
     // if not found, so it's locked about 1 minute and say not lock
-    function checkKeyRedisّIsLock($key_prefix)
+    public function checkKeyRedisّIsLock($key_prefix)
     {
         // if found, so say it's locked
         if (Illuminate\Support\Facades\Cache::has($key_prefix)) {
@@ -86,13 +86,13 @@ class Tools
     }
     
     // remove lock
-    function removeKeyRedisّIsLock($key_prefix)
+    public function removeKeyRedisّIsLock($key_prefix)
     {
         Illuminate\Support\Facades\Cache::forget($key_prefix);
         return true;
     }
 
-    function removeCountryNumberPhoneForIran($phone)
+    public function removeCountryNumberPhoneForIran($phone)
     {
         $country_code = '+98';
         $phone_no     = '+' . $phone;
@@ -103,7 +103,7 @@ class Tools
         return '0' . $final; // output 09168187257
     }
 
-    function set_queryStringRedis($sessionName, $operatorMeli, $value, $time)
+    public function set_queryStringRedis($sessionName, $operatorMeli, $value, $time)
     {
         Illuminate\Support\Facades\Cache::forget('QueryString' . $operatorMeli . $sessionName);
         return Illuminate\Support\Facades\Cache::remember('QueryString' . $operatorMeli . $sessionName, $time, function () use ($value) {
@@ -111,18 +111,18 @@ class Tools
         });
     }
 
-    function get_queryStringRedis($sessionName, $operatorMeli)
+    public function get_queryStringRedis($sessionName, $operatorMeli)
     {
         return Illuminate\Support\Facades\Cache::get('QueryString' . $operatorMeli . $sessionName);
     }
 
-    function delete_queryStringRedis($sessionName, $operatorMeli)
+    public function delete_queryStringRedis($sessionName, $operatorMeli)
     {
         return Illuminate\Support\Facades\Cache::forget('QueryString' . $operatorMeli . $sessionName);
     }
 
     // validate iranian national code
-    function validateNationalCode($nationalCode)
+    public function validateNationalCode($nationalCode)
     {
         if (strlen($nationalCode) != 10) {
             return false;
@@ -157,7 +157,7 @@ class Tools
         }
     }
 
-    function generateRandomToken($length)
+    public function generateRandomToken($length)
     {
         $token        = "";
         $codeAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -170,5 +170,23 @@ class Tools
         }
 
         return $token;
+    }
+
+    private function crypto_rand_secure($min, $max)
+    {
+        $range = $max - $min;
+        if ($range < 1) {
+            return $min;
+        } // not so random...
+        $log    = ceil(log($range, 2));
+        $bytes  = (int)($log / 8) + 1; // length in bytes
+        $bits   = (int)$log + 1; // length in bits
+        $filter = (int)(1 << $bits) - 1; // set all lower bits to 1
+        do {
+            $rnd = hexdec(bin2hex(openssl_random_pseudo_bytes($bytes)));
+            $rnd = $rnd & $filter; // discard irrelevant bits
+        } while ($rnd > $range);
+
+        return $min + $rnd;
     }
 }
