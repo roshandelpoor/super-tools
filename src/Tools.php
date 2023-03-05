@@ -189,4 +189,45 @@ class Tools
 
         return $min + $rnd;
     }
+
+    public function openssl_encrypt_project($theOtherKey, $plainTextToEncrypt)
+    {
+        $chiper       = Config('app.cipher_project', 'AES-256-CBC');
+        $newEncrypter = new \Illuminate\Encryption\Encrypter($theOtherKey, $chiper);
+
+        return $newEncrypter->encrypt($plainTextToEncrypt);
+    }
+
+    public function openssl_decrypt_project($theOtherKey, $plainTextToEncrypt)
+    {
+        $chiper    = Config('app.cipher_project', 'AES-256-CBC');
+        $encrypted = new \Illuminate\Encryption\Encrypter($theOtherKey, $chiper);
+
+        return $encrypted->decrypt($plainTextToEncrypt);
+    }
+
+    // string convert to hexadecimal
+    public function helper_strToHex($string)
+    {
+        $hex = '';
+        for ($i = 0; $i < strlen($string); $i++) {
+            $ord     = ord($string[$i]);
+            $hexCode = dechex($ord);
+            $hex     .= substr('0' . $hexCode, -2);
+        }
+
+        return strToUpper($hex);
+    }
+
+    // hexadecimal convert to string
+    public function helper_hexToStr($hex)
+    {
+        $string = '';
+        for ($i = 0; $i < strlen($hex) - 1; $i += 2) {
+            $string .= chr(hexdec($hex[$i] . $hex[$i + 1]));
+        }
+
+        return $string;
+    }
+
 }
