@@ -1,4 +1,4 @@
-# super-tools
+# Super Tools
 Super Tools is a PHP package that provides practical functions to make your coding life easier. It includes a variety of tools that can be used in any PHP project.
 
 ## Installation
