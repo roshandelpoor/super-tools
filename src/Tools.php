@@ -56,5 +56,55 @@ class Tools
         return $output_file;
     }
 
+    // check for exist the key in Illuminate\Support\Facades\Cache
+    // if found, so say it's locked
+    // if not found, so it's locked about 1 minute and say not lock
+    function checkKeyRedisّIsLock($key_prefix)
+    {
+        // if found, so say it's locked
+        if (Illuminate\Support\Facades\Cache::has($key_prefix)) {
+            return true;
+        }
+
+        // if not found, so it's locked about 1 minute and say not lock
+        Cache::put($key_prefix, true, 1);
+        return false;
+    }
     
+    // remove lock
+    function removeKeyRedisّIsLock($key_prefix)
+    {
+        Illuminate\Support\Facades\Cache::forget($key_prefix);
+        return true;
+    }
+
+    function removeCountryNumberPhoneForIran($phone)
+    {
+        $country_code = '+98';
+        $phone_no     = '+' . $phone;
+
+        // remove +98
+        $final = preg_replace('/^\+?98|\|98|\D/', '', ($phone_no));
+
+        return '0' . $final; // output 09168187257
+    }
+
+    function set_queryStringRedis($sessionName, $operatorMeli, $value, $time)
+    {
+        Illuminate\Support\Facades\Cache::forget('QueryString' . $operatorMeli . $sessionName);
+        return Illuminate\Support\Facades\Cache::remember('QueryString' . $operatorMeli . $sessionName, $time, function () use ($value) {
+            return $value;
+        });
+    }
+
+    function get_queryStringRedis($sessionName, $operatorMeli)
+    {
+        return Illuminate\Support\Facades\Cache::get('QueryString' . $operatorMeli . $sessionName);
+    }
+
+    function delete_queryStringRedis($sessionName, $operatorMeli)
+    {
+        return Illuminate\Support\Facades\Cache::forget('QueryString' . $operatorMeli . $sessionName);
+    }
+
 }
