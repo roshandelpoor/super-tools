@@ -107,4 +107,39 @@ class Tools
         return Illuminate\Support\Facades\Cache::forget('QueryString' . $operatorMeli . $sessionName);
     }
 
+    // validate iranian national code
+    function validateNationalCode($nationalCode)
+    {
+        if (strlen($nationalCode) != 10) {
+            return false;
+        } else {
+            $notValidation = [
+                "0000000000",
+                "1111111111",
+                "2222222222",
+                "3333333333",
+                "4444444444",
+                "5555555555",
+                "6666666666",
+                "7777777777",
+                "8888888888",
+                "9999999999",
+            ];
+            if (in_array($nationalCode, $notValidation)) {
+                return false;
+            } else {
+                if (!preg_match("/^\d{10}$/", $nationalCode)) {
+                    return false;
+                }
+
+                $check = (int)$nationalCode[9];
+                $sum   = array_sum(array_map(function ($x) use ($nationalCode) {
+                    return ((int)$nationalCode[$x]) * (10 - $x);
+                }, range(0, 8))) % 11;
+
+                return ($sum < 2 && $check == $sum) || ($sum >= 2 && $check + $sum == 11);
+                return true;
+            }
+        }
+    }
 }
