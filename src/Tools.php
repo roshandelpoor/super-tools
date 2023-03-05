@@ -56,6 +56,20 @@ class Tools
         return $output_file;
     }
 
+    function getExtensionFileFromBase64($base64_string)
+    {
+        $file = base64_decode($base64_string);
+
+        $f = finfo_open();
+
+        $mime = finfo_buffer($f, $file, FILEINFO_MIME_TYPE);
+        if ($mime == 'jpeg') {
+            $mime = 'jpg';
+        }
+
+        return str_replace('image/', '', $mime);
+    }
+
     // check for exist the key in Illuminate\Support\Facades\Cache
     // if found, so say it's locked
     // if not found, so it's locked about 1 minute and say not lock
