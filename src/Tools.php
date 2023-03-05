@@ -231,7 +231,7 @@ class Tools
     }
 
     // checking iranian phone number 09.........
-    function is_mobile($mobile)
+    public function is_mobile($mobile)
     {
         $mobile = str_replace('-', '', $mobile);
 
@@ -243,7 +243,7 @@ class Tools
         return false;
     }
 
-    function is_shaba($number)
+    public function is_shaba($number)
     {
         $number = str_replace('-', '', $number);
 
@@ -254,7 +254,7 @@ class Tools
         return false;
     }
 
-    function device_is_mobile()
+    public function device_is_mobile()
     {
         $useragent = null;
         if (isset($_SERVER['HTTP_USER_AGENT'])) {
@@ -272,4 +272,32 @@ class Tools
         return false;
     }
 
+    public function dateCheckBetweenTwoDates($dateGoal, $dateStart, $dateEnd)
+    {
+        $check_date     = date('Y-m-d H:i:s', strtotime($dateGoal));
+        $contract_Start = date('Y-m-d H:i:s', strtotime($dateStart));
+        $contract_End   = date('Y-m-d H:i:s', strtotime($dateEnd));
+
+        if (($check_date >= $contract_Start) && ($check_date <= $contract_End)){
+            return 'yes';
+        }
+
+        return 'no';
+    }
+
+    public function nameDayEnglishToFarsi($string)
+    {
+        return strtr(
+            $string,
+            [
+                'Saturday'  => 'شنبه',
+                'Sunday'    => 'یک شنبه',
+                'Monday'    => 'دوشنبه',
+                'Tuesday'   => 'سه شنبه',
+                'Wednesday' => 'چهارشنبه',
+                'Thursday'  => 'پنج شنبه',
+                'Friday'    => 'جمعه',
+            ]
+        );
+    }
 }
