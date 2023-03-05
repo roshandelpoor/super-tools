@@ -31,3 +31,30 @@ class TestPackageController extends Controller
     }
 }
 ```
+
+List Functions in this package
+------------------------------
+
+```php
+- persianToEnglishNumber
+- englishToPersianNumber
+- base64ToImage
+- getExtensionFileFromBase64
+- checkKeyRedisIsLock
+- removeKeyRedisIsLock
+- removeCountryNumberPhoneForIran
+- set_queryStringRedis
+- get_queryStringRedis
+- delete_queryStringRedis
+- validateNationalCode
+- generateRandomToken
+- openssl_encrypt_project
+- openssl_decrypt_project
+- helper_strToHex
+- helper_hexToStr
+- is_mobile
+- is_shaba
+- device_is_mobile
+- dateCheckBetweenTwoDates
+- nameDayEnglishToPersian
+```

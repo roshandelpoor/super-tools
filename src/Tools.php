@@ -73,7 +73,7 @@ class Tools
     // check for exist the key in Illuminate\Support\Facades\Cache
     // if found, so say it's locked
     // if not found, so it's locked about 1 minute and say not lock
-    public function checkKeyRedisّIsLock($key_prefix)
+    public function checkKeyRedisIsLock($key_prefix)
     {
         // if found, so say it's locked
         if (Illuminate\Support\Facades\Cache::has($key_prefix)) {
@@ -86,7 +86,7 @@ class Tools
     }
     
     // remove lock
-    public function removeKeyRedisّIsLock($key_prefix)
+    public function removeKeyRedisIsLock($key_prefix)
     {
         Illuminate\Support\Facades\Cache::forget($key_prefix);
         return true;
