@@ -39,7 +39,6 @@ class TestPackageController extends Controller
 ## Functions
 
 Super Tools includes the following functions:
-List Functions in this package
 ------------------------------
 
 ```php
