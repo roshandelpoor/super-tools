@@ -1,5 +1,5 @@
 # Super Tools
-Super Tools is a PHP package that provides practical functions to make your coding life easier. It includes a variety of tools that can be used in any PHP project.
+Super Tools is a Laravel package that provides practical functions to make your coding life easier. It includes a variety of tools that can be used in any Laravel project.
 
 ## Installation
 
