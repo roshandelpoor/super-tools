@@ -10,8 +10,8 @@ You can install Super Tools using Composer. Simply run the following command:
 
 2- composer dump-autoload
 
-3- add this line in config/app.php
-Super\SuperToolsServiceProvider::class,
+3- add this line in config/app.php -> in part 'providers' => []
+   Super\SuperToolsServiceProvider::class,
 ```
 
 ## Usage
