@@ -63,6 +63,7 @@ Super Tools includes the following functions:
 - device_is_mobile
 - dateCheckBetweenTwoDates
 - nameDayEnglishToPersian
+- generateSecurePassword
 ```
 
 ## Contributing
