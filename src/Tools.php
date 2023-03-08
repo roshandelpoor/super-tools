@@ -231,7 +231,7 @@ class Tools
     }
 
     // checking iranian phone number 09.........
-    public function is_mobile($mobile)
+    public function isMobile($mobile)
     {
         $mobile = str_replace('-', '', $mobile);
 

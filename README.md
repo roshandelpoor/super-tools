@@ -58,7 +58,7 @@ Super Tools includes the following functions:
 - openssl_decrypt_project
 - helper_strToHex
 - helper_hexToStr
-- is_mobile
+- isMobile
 - is_shaba
 - device_is_mobile
 - dateCheckBetweenTwoDates
