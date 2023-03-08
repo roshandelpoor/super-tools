@@ -243,7 +243,7 @@ class Tools
         return false;
     }
 
-    public function is_shaba($number)
+    public function isShaba($number)
     {
         $number = str_replace('-', '', $number);
 
@@ -254,7 +254,7 @@ class Tools
         return false;
     }
 
-    public function device_is_mobile()
+    public function deviceIsMobile()
     {
         $useragent = null;
         if (isset($_SERVER['HTTP_USER_AGENT'])) {

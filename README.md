@@ -60,7 +60,7 @@ Super Tools includes the following functions:
 - helper_hexToStr
 - isMobile
 - is_shaba
-- device_is_mobile
+- deviceIsMobile
 - dateCheckBetweenTwoDates
 - nameDayEnglishToPersian
 - generateSecurePassword
