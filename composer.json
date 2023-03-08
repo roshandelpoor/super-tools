@@ -1,7 +1,19 @@
 {
   "name": "roshandelpoor/super-tools",
   "version": "1.1.5",
-  "description": "super tools is practical function in PHP",
+  "description": "super tools is practical function in Laravel",
+    "keywords": [
+    "tools",
+    "helper"
+  ],
+  "homepage": "https://github.com/roshandelpoor/super-tools",
+  "authors": [
+    {
+      "name": "Roshandelpoor",
+      "email": "mohammad.roshandelpoor@gmail.com",
+      "homepage": "http://roshandelpoor.ir"
+    }
+  ],
   "type": "library",
   "minimum-stability": "dev",
   "license": "MIT",
