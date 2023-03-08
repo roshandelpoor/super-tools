@@ -59,7 +59,7 @@ Super Tools includes the following functions:
 - helper_strToHex
 - helper_hexToStr
 - isMobile
-- is_shaba
+- isShaba
 - deviceIsMobile
 - dateCheckBetweenTwoDates
 - nameDayEnglishToPersian
