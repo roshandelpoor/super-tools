@@ -330,4 +330,19 @@ class Tools
         }
         return $ip;
     }
+
+    public function checkCountryIP()
+    {
+        $ip = $this->getIP();
+
+        $url = 'http://ip-api.com/json/' . $ip;
+        $response = file_get_contents($url);
+        $data = json_decode($response, true);
+
+        if ($data['status'] == 'success') {
+            return $data['country'];
+        } else {
+            return false;
+        }
+    }
 }

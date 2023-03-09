@@ -66,6 +66,7 @@ Super Tools includes the following functions:
 - generateSecurePassword
 - stringSearch
 - getIP
+- checkCountryIP
 ```
 
 ## Contributing
