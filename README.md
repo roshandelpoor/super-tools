@@ -1,18 +1,22 @@
-# super-tools
-super tools is practical function in PHP
+# Super Tools
+Super Tools is a Laravel package that provides practical functions to make your coding life easier. It includes a variety of tools that can be used in any Laravel project.
 
-get package by
+## Installation
+
+You can install Super Tools using Composer. Simply run the following command:
 --------------
 ```bash
 1- composer require "roshandelpoor/super-tools"
 
-2-composer dumpo-autoload
+2- composer dump-autoload
 
-3- add this line in config/app.php
-Super\SuperToolsServiceProvider::class,
+3- add this line in config/app.php -> in part 'providers' => []
+   Super\SuperToolsServiceProvider::class,
 ```
 
-example call function in class
+## Usage
+
+To use Super Tools in your project, simply include the autoload file and start using the functions. Here's an example:
 ------------------------------
 
 ```php
@@ -31,3 +35,41 @@ class TestPackageController extends Controller
     }
 }
 ```
+
+## Functions
+
+Super Tools includes the following functions:
+------------------------------
+
+```php
+- persianToEnglishNumber
+- englishToPersianNumber
+- base64ToImage
+- getExtensionFileFromBase64
+- checkKeyRedisIsLock
+- removeKeyRedisIsLock
+- removeCountryNumberPhoneForIran
+- set_queryStringRedis
+- get_queryStringRedis
+- delete_queryStringRedis
+- validateNationalCode
+- generateRandomToken
+- openssl_encrypt_project
+- openssl_decrypt_project
+- helper_strToHex
+- helper_hexToStr
+- isMobile
+- isShaba
+- deviceIsMobile
+- dateCheckBetweenTwoDates
+- nameDayEnglishToPersian
+- generateSecurePassword
+```
+
+## Contributing
+
+If you find any bugs or have suggestions for new features, feel free to open an issue or submit a pull request on GitHub.
+
+## License
+
+Super Tools is open-source software licensed under the MIT license.
