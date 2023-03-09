@@ -345,4 +345,16 @@ class Tools
             return false;
         }
     }
+
+    public function getServerInfo()
+    {
+        $server_info = array();
+        $server_info['server_name'] = $_SERVER['SERVER_NAME'];
+        $server_info['server_software'] = $_SERVER['SERVER_SOFTWARE'];
+        $server_info['server_addr'] = $_SERVER['SERVER_ADDR'];
+        $server_info['server_port'] = $_SERVER['SERVER_PORT'];
+        $server_info['document_root'] = $_SERVER['DOCUMENT_ROOT'];
+
+        return $server_info;
+    }
 }

@@ -67,6 +67,7 @@ Super Tools includes the following functions:
 - stringSearch
 - getIP
 - checkCountryIP
+- getServerInfo
 ```
 
 ## Contributing
