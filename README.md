@@ -64,6 +64,7 @@ Super Tools includes the following functions:
 - dateCheckBetweenTwoDates
 - nameDayEnglishToPersian
 - generateSecurePassword
+- stringSearch
 ```
 
 ## Contributing

@@ -84,7 +84,7 @@ class Tools
         Cache::put($key_prefix, true, 1);
         return false;
     }
-    
+
     // remove lock
     public function removeKeyRedisIsLock($key_prefix)
     {
@@ -95,7 +95,7 @@ class Tools
     public function removeCountryNumberPhoneForIran($phone)
     {
         $country_code = '+98';
-        $phone_no     = '+' . $phone;
+        $phone_no = '+' . $phone;
 
         // remove +98
         $final = preg_replace('/^\+?98|\|98|\D/', '', ($phone_no));
@@ -146,9 +146,9 @@ class Tools
                     return false;
                 }
 
-                $check = (int)$nationalCode[9];
-                $sum   = array_sum(array_map(function ($x) use ($nationalCode) {
-                    return ((int)$nationalCode[$x]) * (10 - $x);
+                $check = (int) $nationalCode[9];
+                $sum = array_sum(array_map(function ($x) use ($nationalCode) {
+                    return ((int) $nationalCode[$x]) * (10 - $x);
                 }, range(0, 8))) % 11;
 
                 return ($sum < 2 && $check == $sum) || ($sum >= 2 && $check + $sum == 11);
@@ -159,11 +159,11 @@ class Tools
 
     public function generateRandomToken($length)
     {
-        $token        = "";
+        $token = "";
         $codeAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         $codeAlphabet .= "abcdefghijklmnopqrstuvwxyz";
         $codeAlphabet .= "0123456789";
-        $max          = strlen($codeAlphabet); // edited
+        $max = strlen($codeAlphabet); // edited
 
         for ($i = 0; $i < $length; $i++) {
             $token .= $codeAlphabet[crypto_rand_secure(0, $max - 1)];
@@ -178,10 +178,10 @@ class Tools
         if ($range < 1) {
             return $min;
         } // not so random...
-        $log    = ceil(log($range, 2));
-        $bytes  = (int)($log / 8) + 1; // length in bytes
-        $bits   = (int)$log + 1; // length in bits
-        $filter = (int)(1 << $bits) - 1; // set all lower bits to 1
+        $log = ceil(log($range, 2));
+        $bytes = (int) ($log / 8) + 1; // length in bytes
+        $bits = (int) $log + 1; // length in bits
+        $filter = (int) (1 << $bits) - 1; // set all lower bits to 1
         do {
             $rnd = hexdec(bin2hex(openssl_random_pseudo_bytes($bytes)));
             $rnd = $rnd & $filter; // discard irrelevant bits
@@ -192,7 +192,7 @@ class Tools
 
     public function openssl_encrypt_project($theOtherKey, $plainTextToEncrypt)
     {
-        $chiper       = Config('app.cipher_project', 'AES-256-CBC');
+        $chiper = Config('app.cipher_project', 'AES-256-CBC');
         $newEncrypter = new \Illuminate\Encryption\Encrypter($theOtherKey, $chiper);
 
         return $newEncrypter->encrypt($plainTextToEncrypt);
@@ -200,7 +200,7 @@ class Tools
 
     public function openssl_decrypt_project($theOtherKey, $plainTextToEncrypt)
     {
-        $chiper    = Config('app.cipher_project', 'AES-256-CBC');
+        $chiper = Config('app.cipher_project', 'AES-256-CBC');
         $encrypted = new \Illuminate\Encryption\Encrypter($theOtherKey, $chiper);
 
         return $encrypted->decrypt($plainTextToEncrypt);
@@ -211,9 +211,9 @@ class Tools
     {
         $hex = '';
         for ($i = 0; $i < strlen($string); $i++) {
-            $ord     = ord($string[$i]);
+            $ord = ord($string[$i]);
             $hexCode = dechex($ord);
-            $hex     .= substr('0' . $hexCode, -2);
+            $hex .= substr('0' . $hexCode, -2);
         }
 
         return strToUpper($hex);
@@ -274,11 +274,11 @@ class Tools
 
     public function dateCheckBetweenTwoDates($dateGoal, $dateStart, $dateEnd)
     {
-        $check_date     = date('Y-m-d H:i:s', strtotime($dateGoal));
+        $check_date = date('Y-m-d H:i:s', strtotime($dateGoal));
         $contract_Start = date('Y-m-d H:i:s', strtotime($dateStart));
-        $contract_End   = date('Y-m-d H:i:s', strtotime($dateEnd));
+        $contract_End = date('Y-m-d H:i:s', strtotime($dateEnd));
 
-        if (($check_date >= $contract_Start) && ($check_date <= $contract_End)){
+        if (($check_date >= $contract_Start) && ($check_date <= $contract_End)) {
             return 'yes';
         }
 
@@ -291,21 +291,31 @@ class Tools
         return strtr(
             $string,
             [
-                'Saturday'  => 'شنبه',
-                'Sunday'    => 'یک شنبه',
-                'Monday'    => 'دوشنبه',
-                'Tuesday'   => 'سه شنبه',
+                'Saturday' => 'شنبه',
+                'Sunday' => 'یک شنبه',
+                'Monday' => 'دوشنبه',
+                'Tuesday' => 'سه شنبه',
                 'Wednesday' => 'چهارشنبه',
-                'Thursday'  => 'پنج شنبه',
-                'Friday'    => 'جمعه',
+                'Thursday' => 'پنج شنبه',
+                'Friday' => 'جمعه',
             ]
         );
     }
 
     // secure password
-    function generateSecurePassword($length = 12) {
+    function generateSecurePassword($length = 12)
+    {
         $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_-=+;:,.?";
         $password = substr(str_shuffle($chars), 0, $length);
         return $password;
+    }
+
+    function stringSearch($stringText, $serach)
+    {
+        if (strpos($stringText, $serach) !== false) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
