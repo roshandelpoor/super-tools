@@ -65,6 +65,7 @@ Super Tools includes the following functions:
 - nameDayEnglishToPersian
 - generateSecurePassword
 - stringSearch
+- getIP
 ```
 
 ## Contributing

@@ -303,19 +303,31 @@ class Tools
     }
 
     // secure password
-    function generateSecurePassword($length = 12)
+    public function generateSecurePassword($length = 12)
     {
         $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_-=+;:,.?";
         $password = substr(str_shuffle($chars), 0, $length);
         return $password;
     }
 
-    function stringSearch($stringText, $serach)
+    public function stringSearch($stringText, $serach)
     {
         if (strpos($stringText, $serach) !== false) {
             return true;
         } else {
             return false;
         }
+    }
+
+    public function getIP()
+    {
+        if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+            $ip = $_SERVER['HTTP_CLIENT_IP'];
+        } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+            $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+        } else {
+            $ip = $_SERVER['REMOTE_ADDR'];
+        }
+        return $ip;
     }
 }
