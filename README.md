@@ -68,6 +68,7 @@ Super Tools includes the following functions:
 - getIP
 - checkCountryIP
 - getServerInfo
+- getFileInfo
 ```
 
 ## Contributing
