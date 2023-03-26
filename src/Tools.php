@@ -348,7 +348,8 @@ class Tools
 
     public function getServerInfo()
     {
-        $server_info = array();
+        $server_info = [];
+
         $server_info['server_name'] = $_SERVER['SERVER_NAME'];
         $server_info['server_software'] = $_SERVER['SERVER_SOFTWARE'];
         $server_info['server_addr'] = $_SERVER['SERVER_ADDR'];
@@ -357,4 +358,18 @@ class Tools
 
         return $server_info;
     }
+
+    public function getFileInfo($filePath) {
+        $fileInfo = [];
+
+        if (file_exists($filePath)) {
+          $fileInfo['name'] = basename($filePath);
+          $fileInfo['size'] = filesize($filePath);
+          $fileInfo['type'] = mime_content_type($filePath);
+          $fileInfo['modified'] = date("F d Y H:i:s.", filemtime($filePath));
+          $fileInfo['permissions'] = substr(sprintf('%o', fileperms($filePath)), -4);
+        }
+
+        return $fileInfo;
+      }
 }
