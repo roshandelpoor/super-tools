@@ -6,7 +6,7 @@ class Tools
 {
     public function persianToEnglishNumber($number)
     {
-        return strtr($string, [
+        return strtr($number, [
             '۰' => '0',
             '۱' => '1',
             '۲' => '2',
@@ -32,7 +32,7 @@ class Tools
 
     public function englishToPersianNumber($number)
     {
-        return strtr($string, [
+        return strtr($number, [
             '0' => '۰',
             '1' => '۱',
             '2' => '۲',
